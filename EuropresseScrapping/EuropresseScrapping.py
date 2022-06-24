@@ -60,20 +60,6 @@ def ScrappingTest(journalID,tomorrow_date,profile_path,gecko_path,auth_url,user,
             pass
     ff_driver.quit()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def main(argv):
    inputfile = ''
    outputfile = ''
