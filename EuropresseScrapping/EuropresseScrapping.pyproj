@@ -12,7 +12,7 @@
     <Name>EuropresseScrapping</Name>
     <RootNamespace>EuropresseScrapping</RootNamespace>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <CommandLineArguments>-j lemonde -e 20220624</CommandLineArguments>
+    <CommandLineArguments>-j lefigaro -e 20220624</CommandLineArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
