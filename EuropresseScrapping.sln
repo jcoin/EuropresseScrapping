@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "EuropresseScrapping", "EuropresseScrapping\EuropresseScrapping.pyproj", "{CA511FA2-D67B-4CD9-929E-2DDEE102FFD3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA511FA2-D67B-4CD9-929E-2DDEE102FFD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA511FA2-D67B-4CD9-929E-2DDEE102FFD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EBE0ED73-B850-4F41-A53A-43D08FCDF56C}
+	EndGlobalSection
+EndGlobal
