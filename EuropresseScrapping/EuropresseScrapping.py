@@ -51,7 +51,7 @@ def ScrappingTest(journalID,tomorrow_date,profile_path,gecko_path,auth_url,user,
     to_scrape=[]
     for link in list_of_links:
         to_scrape.append(link.get_attribute('href'))
-    print(to_scrape)
+
     for click in to_scrape:
         print(click)
         try:
@@ -61,8 +61,8 @@ def ScrappingTest(journalID,tomorrow_date,profile_path,gecko_path,auth_url,user,
     ff_driver.quit()
 
 def main(argv):
-   inputfile = ''
-   outputfile = ''
+   journalname = ''
+   editiondate = ''
    try:
       opts, args = getopt.getopt(argv,"hj:e:",["journal=","edition="])
    except getopt.GetoptError:
@@ -93,7 +93,7 @@ def main(argv):
    for option in conf.options('europresse'):
         press_code[option] = conf.get('europresse', option)
    
-        journalID=''
+   journalID=''
    if journalname == '':
        journalID='LM'
    elif journalname in press_code:
