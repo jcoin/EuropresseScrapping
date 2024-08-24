@@ -1,5 +1,4 @@
 #!/srv/selenium/bin/python3
-
 import os,sys,getopt,configparser,glob
 import asyncio
 
@@ -71,7 +70,7 @@ def testFinished(files):
        result = file.endswith(".crdownload")
   return (result)
     
-def BNF_auth(auth,user,pwd):
+def BNF_auth(auth,user,pwd,drv_add):
    opt = ChromeOptions()
    opt.enable_downloads = True
    opt.add_argument("--headless=new")
@@ -84,7 +83,7 @@ def BNF_auth(auth,user,pwd):
 
 
    remote_driver = webdriver.Remote(
-      command_executor='http://localhost:4444/wd/hub',
+      command_executor=drv_add,
       options=opt)
       
       
@@ -226,11 +225,12 @@ def main(argv):
    result_dir=conf['env']['result_dir']
    Tel_api_key=conf['telegram']['api']
    Tel_channel_id=conf['telegram']['channel']
+   drv_ad=conf['selenium']['url']
 
 
    print("Main -- Scrap") 
 
-   selenium_driver=BNF_auth( auth_url,bnf_user,bnf_pwd)
+   selenium_driver=BNF_auth( auth_url,bnf_user,bnf_pwd,drv_ad)
 
    last_date_downloaded = find_last_pdf(result_dir, journalID)
   
@@ -282,4 +282,3 @@ def main(argv):
    
 if __name__ == "__main__":
    main(sys.argv[1:])
-
