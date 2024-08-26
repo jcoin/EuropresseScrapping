@@ -103,7 +103,7 @@ def BNF_auth(auth,user,pwd,drv_add):
 
    return (remote_driver)
   
-def ScrappingPdf(eDate,journalID,ff_driver):
+def ScrappingPdf(eDate,journalID,ff_driver,directory):
    print("ScrappingPdf -- Start")
   
    print(ff_driver.current_url) 
@@ -139,7 +139,7 @@ def ScrappingPdf(eDate,journalID,ff_driver):
        files = ff_driver.get_downloadable_files()
  
    for file in files:
-       ff_driver.download_file(file, "/home/dockerapp/europress/pages")
+       ff_driver.download_file(file, directory)
  
    print("ScrappingPdf -- Finished")
 
@@ -244,7 +244,7 @@ def main(argv):
        output_file=result_dir + "/pdf_"+date_string+"_"+journalID+".pdf"
 
        if scrapPDF:
-          ScrappingPdf(date_string,journalID,selenium_driver)
+          ScrappingPdf(date_string,journalID,selenium_driver,download_dir)
           print("Main -- Merge")
 
           glob_pattern    ="/pdf?"+date_string+"?"+journalID+"_p*[!)].pdf"
