@@ -9,7 +9,7 @@ This is meant to be a proof of concept and was a hobby to start coding in python
 ## Prerequisites 
 
 - You'll need a reader card from the BNF (Bibliotheque Nationale de France) for this to work  
-- This script uses a selenium docker image (chromium)
+- This script uses this specific selenium docker image : selenium/standalone-chromium:127.0
 - PyPDF2, selenium and telegram bot python library (see requirements.txt)
 
 ## Configuration
