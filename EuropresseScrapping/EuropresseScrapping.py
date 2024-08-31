@@ -29,19 +29,22 @@ async def msg_tel(api_key,channel_id,message):
 
 
 def find_last_pdf(dir, id) :
-   print("Find Last PDF -- Start")  
+   print("Find Last PDF -- Start")
    glob_pattern_rename="/pdf_????????_"+id+".pdf"
 
    pdfs_downloaded = sorted(filter( os.path.isfile,
                             glob.glob(dir + glob_pattern_rename) ))
 
-   print(pdfs_downloaded)
    if pdfs_downloaded :
+      for pdf in pdfs_downloaded[:-1]:
+         print("Removed :"+pdf)
+         os.remove(pdf)
+
       return((pdfs_downloaded[-1])[30:38])
-   else: 
+   else:
       return ('')
-      
-   print("Find Last PDF -- End") 
+
+   print("Find Last PDF -- End")
 
 def rename_pdfs(paths):
     for file in paths:
@@ -49,15 +52,15 @@ def rename_pdfs(paths):
       print("Rename to:"+new_file)
       os.rename(file,new_file)
 
-
 def merge_pdfs(paths, output):
     pdf_writer = PdfWriter()
 
     for path in paths:
         pdf_reader = PdfReader(path)
-        for page in range(len(pdf_reader.pages)):
+        for page in pdf_reader.pages:
+            page.compress_content_streams()
             # Add each page to the writer object
-            pdf_writer.add_page(pdf_reader.pages[page])
+            pdf_writer.add_page(page)
 
     # Write out the merged PDF
     with open(output, 'wb') as out:
