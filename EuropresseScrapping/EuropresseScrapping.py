@@ -146,13 +146,14 @@ def ScrappingPdf(eDate,journalID,ff_driver,directory):
 def find_edition(name,date_arg,edition,ff_driver):
   print("Find Edition -- Start")
   edition_string=''
-  if '' != date_arg : 
+  if '' != date_arg :
+   print("Find Edition -- Requested edition :" + date_arg)
    edition_string=date_arg
   else :
    url_pub='https://nouveau-europresse-com.bnf.idm.oclc.org/Pdf'
    ff_driver.get(url_pub)
    sleep(2)
-   try: 
+   try:
       sel_search=ff_driver.find_element(By.ID,'sources-search')
       ActionChains(ff_driver)\
          .send_keys_to_element(sel_search,name)\
@@ -160,13 +161,15 @@ def find_edition(name,date_arg,edition,ff_driver):
       sleep(6)
       css_selectorString='[id="sourceLastEdition"][pubid="'+edition+'_P"]'
       sel_docs=ff_driver.find_element(By.ID, 'docList')
-      sel_edition=sel_docs.find_element(By.CSS_SELECTOR,css_selectorString) 
+      sel_edition=sel_docs.find_element(By.CSS_SELECTOR,css_selectorString)
       edition_string=sel_edition.get_attribute("lastedition").replace("-","")
    except selenium.common.exceptions.NoSuchElementException:
       print("Find Edition -- No element")
- 
-   return (edition_string) 
-   print("Find Edition -- End")
+
+
+  print("Find Edition -- Returned:"+edition_string)
+  return (edition_string)
+  print("Find Edition -- End")
 
 def main(argv):
    print("Main -- Start")
